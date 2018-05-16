@@ -1,6 +1,6 @@
 {
   "name": "sewing",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "A JavaScript utility library in business scenarios",
   "main": "libs/index-cjs.js",
   "module": "libs/index-es.js",
