@@ -17,7 +17,7 @@
     "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min",
     "dev": "tsc",
     "test:unit": "jest",
-    "postversion": "rm -rf dist && npm run build && npm run docs"
+    "postversion": "rm -rf dist && npm run build && npm run docs && gh-pages -d docs"
   },
   "author": "Army-U <wuchengkai0@gmail.com>",
   "homepage": "https://github.com/Army-U/sewing",
@@ -36,6 +36,7 @@
     "babel-jest": "22.4.3",
     "bili": "3.1.2",
     "documentation": "6.0.0",
+    "gh-pages": "1.1.0",
     "jest": "22.4.3",
     "node-fetch": "2.1.2",
     "regenerator-runtime": "0.11.1",
