@@ -1,0 +1,64 @@
+{
+  "name": "sewing",
+  "version": "0.0.40",
+  "description": "A JavaScript utility library in business scenarios",
+  "main": "libs/sewing-cjs.js",
+  "module": "libs/sewing-es.js",
+  "unpkg": "libs/sewing-umd.min.js",
+  "jsdelivr": "libs/sewing-umd.min.js",
+  "files": [
+    "dist",
+    "libs"
+  ],
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "docs:lint": "documentation lint dist/src/**",
+    "docs": "rm -rf docs/ && documentation build dist/src/** -f html -o docs",
+    "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min",
+    "dev": "tsc",
+    "test:unit": "jest",
+    "postversion": "rm -rf dist && npm run build && npm run docs"
+  },
+  "author": "Army-U <wuchengkai0@gmail.com>",
+  "homepage": "https://github.com/Army-U/sewing",
+  "keywords": [
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Army-U/sewing.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "7.0.0-beta.47",
+    "@babel/preset-env": "7.0.0-beta.47",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "22.4.3",
+    "bili": "3.1.2",
+    "documentation": "6.0.0",
+    "jest": "22.4.3",
+    "node-fetch": "2.1.2",
+    "regenerator-runtime": "0.11.1",
+    "tslint": "5.10.0",
+    "tslint-config-standard": "7.0.0",
+    "typescript": "2.8.3"
+  },
+  "bili": {
+    "input": [
+      "./dist/index.js",
+      "./dist/src/*.js"
+    ],
+    "outDir": "libs/"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.spec.js"
+    ],
+    "moduleNameMapper": {
+      "^sewing/(.+)": "<rootDir>/libs/$1.es.js"
+    },
+    "setupFiles": [
+      "./__tests__/setUpFetchPolyfill.js"
+    ]
+  }
+}

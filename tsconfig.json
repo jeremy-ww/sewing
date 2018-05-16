@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "module": "ESNext",
+    "lib": [
+      "es2017",
+      "es2016",
+      "dom"
+    ]
+  },
+  "include": ["index.ts"],
+  "exclude": [
+    "node_modules"  
+  ]
+}

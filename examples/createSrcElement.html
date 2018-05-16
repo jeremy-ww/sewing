@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <ul></ul>
+  <hr>
+  <script src="../dist/sewing-iife.js"></script>
+  <script>
+    var ul = document.querySelector('ul')
+
+    var createSrcElement = sewing.createSrcElement
+
+    createSrcElement('img', 'https://o77qb5l10.qnssl.com/20c96f19-8eef-40d0-ac4c-0a8d6c8c9af7.jpg')
+      .then(function (image) {
+        var li = document.createElement('li')
+        li.textContent = image.src
+        ul.append(li)
+        document.body.appendChild(image)
+      })
+
+    createSrcElement('video', 'https://o77qb5l10.qnssl.com/oceans.mp4')
+      .then(function (video) {
+        var li = document.createElement('li')
+        li.textContent = video.src
+        ul.append(li)
+        document.body.appendChild(video)
+      })
+
+    createSrcElement('audio', 'https://o77qb5l10.qnssl.com/horse.ogg')
+      .then(function (audio) {
+        var li = document.createElement('li')
+        li.textContent = audio.src
+        audio.controls = true
+        document.body.appendChild(audio)
+      })
+
+    var div = document.createElement('div')
+
+    createSrcElement('img', 'https://_____404____.com/404.png')
+      .then(function (image) {
+        div.textContent = 'Loaded Image Successfully!'
+        document.body.appendChild(div)
+      }, function () {
+        div.textContent = 'Failed To Load Image!'
+        document.body.appendChild(div)
+      })
+
+    createSrcElement('script', 'https://unpkg.com/vue')
+  </script>
+</body>
+</html>
