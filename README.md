@@ -12,9 +12,9 @@ Javascript utility library, applicable to business scenes. Without dependencies.
 
 ### Download
 
-* [UMD Version](https://unpkg.com/sewing/dist/sewing-umd.js)
-* [AMD Version](https://unpkg.com/sewing/dist/sewing-amd.js)
-* [IIFE Version](https://unpkg.com/sewing/dist/sewing-iife.js)
+* [UMD Version](https://unpkg.com/sewing/libs/index-umd.js)
+* [AMD Version](https://unpkg.com/sewing/libs/index-amd.js)
+* [IIFE Version](https://unpkg.com/sewing/libs/index-iife.js)
 
 ### Quick Start
 

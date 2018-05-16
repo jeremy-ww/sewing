@@ -2,10 +2,10 @@
   "name": "sewing",
   "version": "0.0.41",
   "description": "A JavaScript utility library in business scenarios",
-  "main": "libs/sewing-cjs.js",
-  "module": "libs/sewing-es.js",
-  "unpkg": "libs/sewing-umd.min.js",
-  "jsdelivr": "libs/sewing-umd.min.js",
+  "main": "libs/index-cjs.js",
+  "module": "libs/index-es.js",
+  "unpkg": "libs/index-umd.min.js",
+  "jsdelivr": "libs/index-umd.min.js",
   "files": [
     "dist",
     "libs"
@@ -15,7 +15,7 @@
     "docs:lint": "documentation lint dist/src/**",
     "docs:deploy": "npm run docs && gh-pages -d docs",
     "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
-    "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min",
+    "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min,iife",
     "dev": "tsc",
     "test:unit": "jest",
     "postversion": "npm run build && npm run docs:deploy"
@@ -49,7 +49,8 @@
       "./dist/index.js",
       "./dist/src/*.js"
     ],
-    "outDir": "libs/"
+    "outDir": "libs/",
+    "banner": true
   },
   "jest": {
     "testMatch": [
