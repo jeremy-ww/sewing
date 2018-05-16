@@ -13,11 +13,12 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "docs:lint": "documentation lint dist/src/**",
-    "docs": "rm -rf docs/ && documentation build dist/src/** -f html -o docs",
+    "docs:deploy": "npm run docs && gh-pages -d docs",
+    "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
     "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min",
     "dev": "tsc",
     "test:unit": "jest",
-    "postversion": "rm -rf dist && npm run build && npm run docs && gh-pages -d docs"
+    "postversion": "npm run build && npm run docs:deploy"
   },
   "author": "Army-U <wuchengkai0@gmail.com>",
   "homepage": "https://github.com/Army-U/sewing",
@@ -30,10 +31,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.47",
-    "@babel/preset-env": "7.0.0-beta.47",
-    "babel-core": "7.0.0-bridge.0",
+    "babel-core": "6.26.3",
     "babel-jest": "22.4.3",
+    "babel-preset-env": "1.7.0",
     "bili": "3.1.2",
     "documentation": "6.0.0",
     "gh-pages": "1.1.0",
