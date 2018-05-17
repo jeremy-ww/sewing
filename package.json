@@ -2,8 +2,8 @@
   "name": "sewing",
   "version": "0.0.42",
   "description": "A JavaScript utility library in business scenarios",
-  "main": "libs/index-cjs.js",
-  "module": "libs/index-es.js",
+  "main": "libs/index.cjs.js",
+  "module": "libs/index.es.js",
   "unpkg": "libs/index.min.js",
   "jsdelivr": "libs/index.min.js",
   "files": [
