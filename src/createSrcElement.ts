@@ -25,7 +25,7 @@ import baseCreateElement from './internal/baseCreateElement'
  *  })
  */
 
-type SrcElement = HTMLAudioElement | HTMLEmbedElement | HTMLIFrameElement
+export type SrcElement = HTMLAudioElement | HTMLEmbedElement | HTMLIFrameElement
   | HTMLImageElement | HTMLInputElement | HTMLScriptElement | HTMLSourceElement
   | HTMLTrackElement | HTMLVideoElement
 

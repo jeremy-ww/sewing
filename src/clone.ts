@@ -27,12 +27,15 @@ import isType from './isType'
  * obj.range
  * // => 10
  */
-interface CloneInterface extends Date, RegExp, Function {
+export interface CloneInterface extends Date, RegExp, Function {
   [propName: string]: any
   constructor: ObjectConstructor
 }
 
-export default function clone<T extends CloneInterface> (obj: T, context?: any): T {
+export default function clone<T extends CloneInterface> (
+  obj: T,
+  context?: any
+): T {
   if (isPrimitive(obj)) return obj
 
   const result = isType(obj, 'Date') ? new Date(obj as Date)
