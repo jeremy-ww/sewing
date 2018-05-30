@@ -12,6 +12,12 @@ describe('parseJSONString method', function () {
     expect(parse({ person: "{ \"name\": \"tom\", \"age\": 18 }" }))
       .toEqual({ person: { name: 'tom', age: 18 } })
 
+    expect(parse("{ \"orderID\": \"1200020707947551541\", \"riderName\": \"bush\" }"))
+      .toEqual({ orderID: '1200020707947551541', riderName: 'bush' })
+
+    expect(parse({ orderID: '1200020707947551541', riderName: 'bush' }))
+      .toEqual({ orderID: '1200020707947551541', riderName: 'bush' })
+
     expect(parse({ name: 'tom', age: 18 }))
       .toEqual({ name: 'tom', age: 18 })
 
