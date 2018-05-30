@@ -9,22 +9,22 @@ import clone from './clone'
  *
  * @example
  *
- * parse({ name: 'tom', age: 18 })
+ * parseJSONString({ name: 'tom', age: 18 })
  * // => { name: 'tom', age: 18 }
  *
- * parse({ person: "{ \"name\": \"tom\", \"age\": 18 }" })
+ * parseJSONString({ person: "{ \"name\": \"tom\", \"age\": 18 }" })
  * // => { person: { name: 'tom', age: 18 } }
  *
- * parse({ person: "{ \"name\": \"tom\", \"age\": 20, \"other\": \"{ \\\"female\\\": true }\", \"birth\": \"beijin\", \"parent\": \"{ \\\"father\\\": \\\"bush\\\" }\" }" })
+ * parseJSONString({ person: "{ \"name\": \"tom\", \"age\": 20, \"other\": \"{ \\\"female\\\": true }\", \"birth\": \"beijin\", \"parent\": \"{ \\\"father\\\": \\\"bush\\\" }\" }" })
  * // => { person: { name: 'tom', age: 20, other: { female: true }, birth: 'beijin', parent: { father: 'bush' } } }
  */
-export default function parse (json: any): any {
+export default function parseJSONString (json: any): any {
   const shallowParsedObj = clone(formatJSONString(json))
   if (!isType(shallowParsedObj, ['Object', 'Array'])) return shallowParsedObj
 
   Object.keys(shallowParsedObj).forEach(v => {
     const target = formatJSONString(shallowParsedObj[v])
-    shallowParsedObj[v] = isType(target, ['Object', 'Array']) ? parse(target) : target
+    shallowParsedObj[v] = isType(target, ['Object', 'Array']) ? parseJSONString(target) : target
   })
 
   return shallowParsedObj
