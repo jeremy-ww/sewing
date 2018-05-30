@@ -17,7 +17,7 @@ import isType from '../isType'
  * // => { author: "", datetime: "", description: "default version", modelName: "delta", version: "eta_agent3.9" }
  */
 export default function formatJSONString (str: string | any): string | any {
-  if (isType(str, 'Object') || !/^{.*}$/.test(str)) return str
+  if (!isType(str, 'String')) return str
   try {
     return JSON.parse(str)
   } catch (e) {
