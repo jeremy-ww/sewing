@@ -2,6 +2,8 @@ import formatJSONString from './internal/formatJSONString'
 import isType from './isType'
 import clone from './clone'
 
+const { MAX_SAFE_INTEGER = 9007199254740991 } = Number
+
 /**
  * 递归格式化 json 对象或者字符串, 为保证超大数值的精准性, 不会将超大数值的字符串转为数字.
  * @param  {string|Object} json 待格式化的 json 对象或者字符串
@@ -23,8 +25,6 @@ import clone from './clone'
  * parseJSONString({ person: "{ \"name\": \"tom\", \"age\": 20, \"other\": \"{ \\\"female\\\": true }\", \"birth\": \"beijin\", \"parent\": \"{ \\\"father\\\": \\\"bush\\\" }\" }" })
  * // => { person: { name: 'tom', age: 20, other: { female: true }, birth: 'beijin', parent: { father: 'bush' } } }
  */
-const { MAX_SAFE_INTEGER = 9007199254740991 } = Number
-
 export default function parseJSONString (json: any): any {
   const shallowParsedObj = clone(formatJSONString(json))
   if (!isType(shallowParsedObj, ['Object', 'Array'])) return shallowParsedObj
