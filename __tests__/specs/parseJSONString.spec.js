@@ -1,6 +1,6 @@
-import parse from 'sewing/parse'
+import parse from 'sewing/parseJSONString'
 
-describe('parse method', function () {
+describe('parseJSONString method', function () {
 
   it('should parse work well', function () {
     expect(parse("{\"author\":\"\",\"datetime\":\"\",\"description\":\"default version\",\"modelName\":\"delta\",\"version\":\"eta_agent3.9\"}"))
