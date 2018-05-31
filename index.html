@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>sewing 0.0.43 | Documentation</title>
+  <title>sewing 0.0.45 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>sewing</h3>
-          <div class='mb1'><code>0.0.43</code></div>
+          <div class='mb1'><code>0.0.45</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -185,9 +185,9 @@
               
                 
                 <li><a
-                  href='#parse'
+                  href='#parsejsonstring'
                   class="">
-                  parse
+                  parseJSONString
                   
                 </a>
                 
@@ -1706,18 +1706,18 @@ map2SearchString({ <span class="hljs-attr">array</span>: [<span class="hljs-numb
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='parse'>
-      parse
+    <h3 class='fl m0' id='parsejsonstring'>
+      parseJSONString
     </h3>
     
     
   </div>
   
 
-  <p>递归格式化 json 对象或者字符串</p>
+  <p>递归格式化 json 对象或者字符串, 为保证超大数值的精准性, 不会将超大数值的字符串转为数字.</p>
 
 
-  <div class='pre p1 fill-light mt0'>parse(json: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>parseJSONString(json: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -1762,13 +1762,18 @@ map2SearchString({ <span class="hljs-attr">array</span>: [<span class="hljs-numb
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>parse({ <span class="hljs-attr">name</span>: <span class="hljs-string">'tom'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> })
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// will convert `age` to numeric type</span>
+parseJSONString({ <span class="hljs-attr">name</span>: <span class="hljs-string">'tom'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> })
 <span class="hljs-comment">// =&gt; { name: 'tom', age: 18 }</span>
 
-parse({ <span class="hljs-attr">person</span>: <span class="hljs-string">"{ \"name\": \"tom\", \"age\": 18 }"</span> })
+<span class="hljs-comment">// will not convert `orderID` to numeric type</span>
+parseJSONString({ <span class="hljs-attr">orderID</span>: <span class="hljs-string">'1200020707947551541'</span>, <span class="hljs-attr">riderName</span>: <span class="hljs-string">'bush'</span> })
+<span class="hljs-comment">// =&gt; { orderID: '1200020707947551541' }</span>
+
+parseJSONString({ <span class="hljs-attr">person</span>: <span class="hljs-string">"{ \"name\": \"tom\", \"age\": 18 }"</span> })
 <span class="hljs-comment">// =&gt; { person: { name: 'tom', age: 18 } }</span>
 
-parse({ <span class="hljs-attr">person</span>: <span class="hljs-string">"{ \"name\": \"tom\", \"age\": 20, \"other\": \"{ \\\"female\\\": true }\", \"birth\": \"beijin\", \"parent\": \"{ \\\"father\\\": \\\"bush\\\" }\" }"</span> })
+parseJSONString({ <span class="hljs-attr">person</span>: <span class="hljs-string">"{ \"name\": \"tom\", \"age\": 20, \"other\": \"{ \\\"female\\\": true }\", \"birth\": \"beijin\", \"parent\": \"{ \\\"father\\\": \\\"bush\\\" }\" }"</span> })
 <span class="hljs-comment">// =&gt; { person: { name: 'tom', age: 20, other: { female: true }, birth: 'beijin', parent: { father: 'bush' } } }</span></pre>
     
   
