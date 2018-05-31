@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "docs:lint": "documentation lint dist/src/**",
-    "docs:deploy": "npm run docs && gh-pages -d docs",
+    "docs:deploy": "npm run docs && cp -r .circleci docs && gh-pages -d docs -t",
     "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
     "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min,iife",
     "dev": "tsc",
