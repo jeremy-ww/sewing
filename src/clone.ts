@@ -1,6 +1,11 @@
 import isPrimitive from './isPrimitive'
 import isType from './isType'
 
+export interface CloneInterface extends Date, RegExp, Function {
+  [propName: string]: any
+  constructor: ObjectConstructor
+}
+
 /**
  * 深度克隆一个对象, 即使是包含了日期、正则、函数. 对于函数即使 clone 过, 也能拿到正确的 `this`.
  *
@@ -27,11 +32,6 @@ import isType from './isType'
  * obj.range
  * // => 10
  */
-export interface CloneInterface extends Date, RegExp, Function {
-  [propName: string]: any
-  constructor: ObjectConstructor
-}
-
 export default function clone<T extends CloneInterface> (
   obj: T,
   context?: any

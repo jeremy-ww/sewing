@@ -1,5 +1,9 @@
 import baseCreateElement from './internal/baseCreateElement'
 
+export type SrcElement = HTMLAudioElement | HTMLEmbedElement | HTMLIFrameElement
+  | HTMLImageElement | HTMLInputElement | HTMLScriptElement | HTMLSourceElement
+  | HTMLTrackElement | HTMLVideoElement
+
 /**
  * 通过标签名称来创建 src 元素并绑定 load 事件, 非 HTMLMediaElement | HTMLImageElement 元素
  * 会被直接插入到页面的 head 标签下.
@@ -24,11 +28,6 @@ import baseCreateElement from './internal/baseCreateElement'
  *    console.log(image)
  *  })
  */
-
-export type SrcElement = HTMLAudioElement | HTMLEmbedElement | HTMLIFrameElement
-  | HTMLImageElement | HTMLInputElement | HTMLScriptElement | HTMLSourceElement
-  | HTMLTrackElement | HTMLVideoElement
-
 export default function createSrcElement (
   tag: string,
   src: string,
