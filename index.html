@@ -35,6 +35,26 @@
               
                 
                 <li><a
+                  href='#clone'
+                  class="">
+                  clone
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createsrcelement'
+                  class="">
+                  createSrcElement
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#createstyleelement'
                   class="">
                   createStyleElement
@@ -155,6 +175,16 @@
               
                 
                 <li><a
+                  href='#ismobile'
+                  class="">
+                  isMobile
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#isprimitive'
                   class="">
                   isPrimitive
@@ -208,6 +238,16 @@
                   href='#removeone'
                   class="">
                   removeOne
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#renameobjectkeys'
+                  class="">
+                  renameObjectKeys
                   
                 </a>
                 
@@ -333,6 +373,210 @@ cachedFunctionWithParam(<span class="hljs-string">'figure'</span>, str =&gt; str
 
 cachedFunctionWithParam(<span class="hljs-string">'figure'</span>, str =&gt; str.small())
 <span class="hljs-comment">// =&gt; '&lt;big&gt;figure&lt;/big&gt;'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='clone'>
+      clone
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>深度克隆一个对象, 即使是包含了日期、正则、函数. 对于函数即使 clone 过, 也能拿到正确的 <code>this</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>clone(obj: any, context: any): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(any)</code>
+	    待克隆的对象
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        深度克隆对象
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>clone({ <span class="hljs-attr">name</span>: <span class="hljs-string">'tom'</span>, <span class="hljs-attr">range</span>: [<span class="hljs-number">60</span>, <span class="hljs-number">80</span>, <span class="hljs-number">75</span>] })
+<span class="hljs-comment">// =&gt; { name: 'tom', range: [60, 80, 75] }</span>
+
+clone({ <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), <span class="hljs-attr">regexp</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'d+'</span>, <span class="hljs-string">'g'</span>), <span class="hljs-attr">call</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'sewing'</span>) } })
+<span class="hljs-comment">// =&gt; { date: new Date(), regexp: new RegExp('d+', 'g'), call: function () { console.log('sewing') } }</span>
+
+<span class="hljs-keyword">const</span> obj = {
+  <span class="hljs-attr">range</span>: <span class="hljs-number">10</span>,
+  setRange () {
+    <span class="hljs-keyword">return</span> ++<span class="hljs-keyword">this</span>.range &amp;&amp; <span class="hljs-keyword">this</span>
+  }
+}
+clone(obj).setRange().range
+<span class="hljs-comment">// =&gt; 11</span>
+
+obj.range
+<span class="hljs-comment">// =&gt; 10</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createsrcelement'>
+      createSrcElement
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>通过标签名称来创建 src 元素并绑定 load 事件, 非 HTMLMediaElement | HTMLImageElement 元素
+会被直接插入到页面的 head 标签下.</p>
+
+
+  <div class='pre p1 fill-light mt0'>createSrcElement(tag: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, src: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, prophase: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>tag</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    元素标签名称
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>src</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    元素的 src 属性
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>prophase</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+        load/error 事件触发返回 promise
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>createSrcElement(<span class="hljs-string">'script'</span>, <span class="hljs-string">'https://unpkg.com/vue'</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">script</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(script) <span class="hljs-comment">// =&gt; &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;</span>
+  })
+
+<span class="hljs-keyword">const</span> setImageCrossOrigin = <span class="hljs-function"><span class="hljs-params">img</span> =&gt;</span> {
+  img.crossOrigin = <span class="hljs-string">'Anonymous'</span>
+  <span class="hljs-keyword">return</span> img
+}
+createSrcElement(<span class="hljs-string">'img'</span>, <span class="hljs-string">'https://example.com/example.png'</span>, setImageCrossOrigin)
+ .then(<span class="hljs-function"><span class="hljs-params">images</span> =&gt;</span> {
+   <span class="hljs-built_in">console</span>.log(image)
+ })</pre>
     
   
 
@@ -1428,6 +1672,76 @@ isEncodedString(<span class="hljs-string">'name%3Dtom%26age%3D29'</span>)
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='ismobile'>
+      isMobile
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>根据 ua 来判断是否是移动端平台</p>
+
+
+  <div class='pre p1 fill-light mt0'>isMobile(userAgent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>userAgent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>navigator.userAgent</code>)</code>
+	    navigator.userAgent
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        是否是移动端平台
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='isprimitive'>
       isPrimitive
     </h3>
@@ -1948,6 +2262,96 @@ removeOne([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</
 
 removeOne(<span class="hljs-literal">undefined</span>, <span class="hljs-string">'f'</span>)
 <span class="hljs-comment">// =&gt; undefined</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='renameobjectkeys'>
+      renameObjectKeys
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>替换一个对象的一级 key 名称, 再不修改原始对象的情况下返回一个新的对象.</p>
+
+
+  <div class='pre p1 fill-light mt0'>renameObjectKeys(target: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, source: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>target</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    等待替换名称的对象
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    key-value 结构, 包含替换前后的 key 名称, 替换后的名称不应该存在原始对象的名称中
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        替换名称之后的对象
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>renameObjectKeys({ <span class="hljs-attr">name</span>: <span class="hljs-string">'male'</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">'sex'</span> })
+<span class="hljs-comment">// =&gt; { sex: 'male' }</span>
+
+renameObjectKeys({ <span class="hljs-attr">name</span>: <span class="hljs-string">'male'</span>, <span class="hljs-attr">education</span>: <span class="hljs-string">'18'</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">'sex'</span>, <span class="hljs-attr">education</span>: <span class="hljs-string">'age'</span> })
+<span class="hljs-comment">// =&gt; { sex: 'male', age: '18' }</span></pre>
     
   
 
