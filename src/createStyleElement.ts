@@ -8,6 +8,17 @@ import baseCreateElement from './internal/baseCreateElement'
  *
  * @example
  *
+ * function prefetch (url, type = 'image') {
+ *   createStyleElement(url, element => {
+ *     element.rel = 'prefetch'
+ *     element.as = type
+ *     return element
+ *   })
+ * }
+ *
+ * prefetch('https://bit.ly/2HqROmb')
+ * // => <link rel="prefetch" href="https://bit.ly/2HqROmb" as="image"/>
+ *
  * createStyleElement('https://unpkg.com/minireset.css/minireset.css')
  * // => <link rel="stylesheet" href="https://unpkg.com/minireset.css/minireset.css"/>
  */
