@@ -6,6 +6,7 @@
   "module": "libs/index.es.js",
   "unpkg": "libs/index.min.js",
   "jsdelivr": "libs/index.min.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "libs"
