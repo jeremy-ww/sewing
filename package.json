@@ -19,7 +19,8 @@
     "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min,iife",
     "dev": "tsc",
     "test:unit": "jest",
-    "postversion": "npm run build && npm run docs:deploy"
+    "postversion": "npm run build && npm run docs:deploy",
+    "postbuild": "cp dist/src/*.d.ts libs"
   },
   "author": "Army-U <wuchengkai0@gmail.com>",
   "homepage": "https://github.com/Army-U/sewing",
