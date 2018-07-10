@@ -28,9 +28,15 @@ In a browser:
 ```
 
 In Node.js:
-```
+```js
 const sewing = require('sewing')
 const isEmpty = require('sewing/isEmpty')
+```
+
+In TypeScript:
+```js
+import sewing from 'sewing'
+import isEmpty from 'sewing/dist/src/isEmpty'
 ```
 
 ### Examples
