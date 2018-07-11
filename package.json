@@ -2,11 +2,7 @@
   "name": "sewing",
   "version": "0.0.47",
   "description": "A JavaScript utility library in business scenarios",
-  "main": "libs/index.cjs.js",
-  "module": "libs/index.es.js",
-  "unpkg": "libs/index.min.js",
-  "jsdelivr": "libs/index.min.js",
-  "types": "dist/index.d.ts",
+  "main": "libs/index.js",
   "files": [
     "dist",
     "libs"
@@ -16,11 +12,11 @@
     "docs:lint": "documentation lint dist/src/**",
     "docs:deploy": "npm run docs && cp -r .circleci docs && gh-pages -d docs -t",
     "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
-    "build": "rm -rf dist/ libs/ && tsc && bili --format cjs,es,umd,umd-min,iife",
-    "dev": "tsc",
+    "build": "rm -rf dist/ libs/ && tsc && bili --format cjs --filename '[name].js'",
+    "dev": "rm -rf dist/ && tsc",
     "test:unit": "jest",
     "postversion": "npm run build && npm run docs:deploy",
-    "postbuild": "cp dist/src/*.d.ts libs"
+    "postbuild": "cp dist/*.d.ts libs"
   },
   "author": "Army-U <wuchengkai0@gmail.com>",
   "homepage": "https://github.com/Army-U/sewing",
@@ -48,8 +44,7 @@
   },
   "bili": {
     "input": [
-      "./dist/index.js",
-      "./dist/src/*.js"
+      "./dist/*.js"
     ],
     "outDir": "libs/",
     "banner": true

@@ -10,11 +10,6 @@
 
 Javascript utility library, applicable to business scenes. Without dependencies.
 
-### Download
-
-* [UMD Version](https://unpkg.com/sewing/libs/index.min.js)
-* [IIFE Version](https://unpkg.com/sewing/libs/index.iife.js)
-
 ### Quick Start
 
 Using npm:
@@ -22,21 +17,15 @@ Using npm:
 $ npm i sewing
 ```
 
-In a browser:
-```html
-<script src="https://unpkg.com/sewing"></script>
+In TypeScript/ESM:
+```js
+import sewing from 'sewing'
 ```
 
 In Node.js:
 ```js
-const sewing = require('sewing')
+// You can't require whole library, it contains browser env code.
 const isEmpty = require('sewing/isEmpty')
-```
-
-In TypeScript:
-```js
-import sewing from 'sewing'
-import isEmpty from 'sewing/dist/src/isEmpty'
 ```
 
 ### Examples

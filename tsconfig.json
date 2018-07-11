@@ -7,14 +7,14 @@
     "experimentalDecorators": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": [
       "es2017",
       "es2016",
       "dom"
     ]
   },
-  "include": ["src/**/*.ts", "index.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": [
     "node_modules"  
   ]
