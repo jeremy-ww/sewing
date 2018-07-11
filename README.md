@@ -20,12 +20,13 @@ $ npm i sewing
 In TypeScript/ESM:
 ```js
 import sewing from 'sewing'
+import isEmpty from 'sewing/dist/isEmpty'
 ```
 
 In Node.js:
 ```js
 // You can't require whole library, it contains browser env code.
-const isEmpty = require('sewing/isEmpty')
+const isEmpty = require('sewing/libs/isEmpty')
 ```
 
 ### Examples
