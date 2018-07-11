@@ -8,7 +8,7 @@
     "libs"
   ],
   "scripts": {
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "tslint --project tsconfig.json",
     "docs:lint": "documentation lint dist/src/**",
     "docs:deploy": "npm run docs && cp -r .circleci docs && gh-pages -d docs -t",
     "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
