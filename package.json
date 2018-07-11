@@ -54,7 +54,7 @@
       "**/__tests__/**/*.spec.js"
     ],
     "moduleNameMapper": {
-      "^sewing/(.+)": "<rootDir>/libs/$1.es.js"
+      "^sewing/(.+)": "<rootDir>/dist/$1.js"
     },
     "setupFiles": [
       "./__tests__/setUpFetchPolyfill.js"
