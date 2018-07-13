@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "docs:lint": "documentation lint dist/src/**",
+    "docs:lint": "documentation lint dist/**",
     "docs:deploy": "npm run docs && cp -r .circleci docs && gh-pages -d docs -t",
-    "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/src/** -f html -o docs",
+    "docs": "rm -rf docs/ dist/ && npm run dev && documentation build dist/** -f html -o docs",
     "build": "npm run dev && bili --format cjs --filename '[name].js' --exports 'named'",
     "dev": "rm -rf dist/ libs/ && tsc",
     "test:unit": "jest",
