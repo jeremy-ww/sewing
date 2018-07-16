@@ -44,7 +44,7 @@
   },
   "bili": {
     "input": [
-      "./dist/*.js"
+      "./dist/**/*.js"
     ],
     "outDir": "libs/",
     "banner": true
