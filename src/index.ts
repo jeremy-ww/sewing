@@ -1,4 +1,5 @@
 export { default as baseCreateElement } from './internal/baseCreateElement'
+export { default as formatJSONString } from './internal/formatJSONString'
 export { default as createStyleElement } from './createStyleElement'
 export { default as renameObjectKeys } from './renameObjectKeys'
 export { default as createSrcElement } from './createSrcElement'
