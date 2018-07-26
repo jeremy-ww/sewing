@@ -2,12 +2,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "declaration": true,
     "experimentalDecorators": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
     "module": "CommonJS",
     "lib": [
       "es2017",
