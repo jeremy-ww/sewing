@@ -26,9 +26,9 @@
  * cachedFunctionWithParam('figure', str => str.small())
  * // => '<big>figure</big>'
  */
-export default function cache (fn: (str: any) => any) {
+export default function cache (fn: (str: any) => any): (str: any) => any {
   const cache: { [propName: string]: any } = {}
-  return function cachedFn () {
+  return function cachedFn (this: any) {
     const str = arguments[0]
     const hit = cache[str]
     return cache.hasOwnProperty(str) ? hit : (cache[str] = fn.apply(this, arguments))

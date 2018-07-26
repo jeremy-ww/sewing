@@ -16,7 +16,7 @@ export default function debounce (
 ): (...args: any[]) => void {
   let timer: any = null
 
-  return function (...args) {
+  return function (this: any, ...args) {
     const later = () => {
       timer = null
       func.call(this, ...args)
