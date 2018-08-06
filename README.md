@@ -1,9 +1,10 @@
 <h1 align="center">sewing</h1>
 
 <p align="center">
-  <a href="https://circleci.com/gh/Army-U/sewing"><img src="https://img.shields.io/circleci/project/github/Army-U/sewing.svg?style=flat-square" alt="Build Status" /></a>
-  <a href="https://david-dm.org/Army-U/sewing"><img src="https://img.shields.io/david/Army-u/sewing.svg?style=flat-square" alt="Dependency Status" /></a>
-  <a href="https://www.npmjs.com/package/sewing"><img src="https://img.shields.io/npm/v/sewing.svg?style=flat-square" alt="Version" /></a>
+  <a href="https://circleci.com/gh/Army-U/sewing"><img src="https://flat.badgen.net/circleci/github/Army-U/sewing/master" alt="Build Status" /></a>
+  <a href="https://david-dm.org/Army-U/sewing"><img src="https://flat.badgen.net/david/dep/Army-U/sewing" alt="Dependency Status" /></a>
+  <a href="https://www.npmjs.com/package/sewing"><img src="https://flat.badgen.net/npm/v/sewing" alt="Version" /></a>
+  <a href="https://www.npmjs.com/package/sewing"><img src="https://flat.badgen.net/npm/dt/sewing" alt="Download" /></a>
 </p>
 
 ### Introduction
