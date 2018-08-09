@@ -1,6 +1,6 @@
 {
   "name": "sewing",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "description": "A JavaScript utility library in business scenarios",
   "main": "libs/index.js",
   "files": [
