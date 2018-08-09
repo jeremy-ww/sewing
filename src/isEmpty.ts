@@ -1,3 +1,5 @@
+import isPrimitive from './isPrimitive'
+
 /**
  * 判断一个对象是否是 Empty
  * @param  {Object} obj 判断的对象
@@ -18,8 +20,13 @@
  * // => false
  *
  * isEmpty({})
- * // => false
+ * // => true
+ *
+ * isEmpty([1, 2, 3])
+ * //=> false
  */
 export default function isEmpty (obj: any): boolean {
-  return obj == null || obj === ''
+  return isPrimitive(obj)
+    ? obj == null || obj === ''
+    : Object.keys(obj).length === 0
 }
