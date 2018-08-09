@@ -26,19 +26,25 @@ import isEmpty from './isEmpty'
  *   name: 'lee',
  *   age: 18,
  *   empty_object: [{ name: undefined }]
- * }, 1)
+ * }, 2)
  * // => true
  */
 export default function isEmptyValueObj (obj: any, depth = 0): boolean {
   if (isEmpty(obj)) return true
 
-  const keys = Object.keys(obj)
   let recursionIndex = 0
 
-  return keys.length > 0 && keys.some(key => {
-    const value = obj[key]
-    return isPrimitive(value) || recursionIndex >= depth
-      ? isEmpty(value)
-      : (++recursionIndex && isEmptyValueObj(value)) as boolean
-  })
+  function internal (obj: any): boolean {
+    const keys = Object.keys(obj)
+    const result = keys.length > 0 && keys.some(key => {
+      const value = obj[key]
+      return recursionIndex >= depth || isPrimitive(value)
+        ? isEmpty(value)
+        : (++recursionIndex && internal(value)) as boolean
+    })
+    recursionIndex = 0
+    return result
+  }
+
+  return internal(obj)
 }

@@ -11,8 +11,8 @@ describe('isEmptyValueObj method', function () {
     expect(isEmptyValueObj(null)).toBe(true)
     expect(isEmptyValueObj(undefined)).toBe(true)
     expect(isEmptyValueObj([1, 2, 3])).toBe(false)
-    expect(isEmptyValueObj([1, 2, undefined])).toBe(false)
-    expect(isEmptyValueObj([1, 2, null])).toBe(false)
+    expect(isEmptyValueObj([1, 2, undefined])).toBe(true)
+    expect(isEmptyValueObj([1, 2, null])).toBe(true)
     expect(isEmptyValueObj({})).toBe(true)
     expect(isEmptyValueObj({ name: 'tom' })).toBe(false)
 
@@ -28,14 +28,30 @@ describe('isEmptyValueObj method', function () {
         name: 'lee',
         age: 18,
         empty_object: [{ name: undefined }]
-      }, 1)
+      }, 2)
     ).toBe(true)
     expect(
       isEmptyValueObj({
         name: 'lee',
         age: 18,
         empty_object: [{ person: { name: 'lee' } }]
-      }, 1)
+      }, 3)
     ).toBe(false)
+    expect(
+      isEmptyValueObj({
+        name: 'lee',
+        age: 18,
+        empty_object: [{ person: { name: 'lee' } }],
+        empty_object2: [{ name: 'tom', array: [undefined, null, 1] }]
+      }, 2)
+    ).toBe(false)
+    expect(
+      isEmptyValueObj({
+        name: 'lee',
+        age: 18,
+        empty_object: [{ person: { name: 'lee' } }],
+        empty_object2: [{ name: 'tom', array: [undefined, null, 1] }]
+      }, 3)
+    ).toBe(true)
   })
 })
