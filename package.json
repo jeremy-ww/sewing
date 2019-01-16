@@ -3,6 +3,7 @@
   "version": "0.0.54",
   "description": "A JavaScript utility library in business scenarios",
   "main": "libs/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist",
     "libs"
