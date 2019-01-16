@@ -31,6 +31,6 @@ export default function cache (fn: (str: any) => any): (str: any) => any {
   return function cachedFn (this: any) {
     const str = arguments[0]
     const hit = cache[str]
-    return cache.hasOwnProperty(str) ? hit : (cache[str] = fn.apply(this, arguments))
+    return cache.hasOwnProperty(str) ? hit : (cache[str] = fn.apply(this, arguments as any))
   }
 }

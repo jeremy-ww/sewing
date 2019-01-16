@@ -11,7 +11,7 @@
  * window.addEventListener('resize', debounce(function () { console.log(this) }, 100))
  */
 export default function debounce (
-  func: () => void,
+  func: (...args: any[]) => void,
   wait: number = 50
 ): (...args: any[]) => void {
   let timer: any = null
