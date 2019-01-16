@@ -9,15 +9,14 @@
     "libs"
   ],
   "scripts": {
-    "lint": "tslint --project tsconfig.json",
+    "lint": "tsc --noEmit && tslint --project tsconfig.json",
     "docs:lint": "documentation lint dist/**",
     "docs:deploy": "npm run docs && cp -r .circleci docs && gh-pages -d docs -t",
     "docs": "npm run dev && documentation build dist/** -f html -o docs",
     "build": "npm run dev && bili --format cjs --filename '[name].js' --exports 'named'",
     "dev": "tsc",
     "test:unit": "jest",
-    "postversion": "rm -rf dist/ libs/ && npm run build && npm run docs:deploy",
-    "postbuild": "cp dist/*.d.ts libs"
+    "postversion": "rm -rf dist/ libs/ && npm run build && npm run docs:deploy"
   },
   "author": "Army-U <wuchengkai0@gmail.com>",
   "homepage": "https://github.com/Army-U/sewing",
@@ -33,19 +32,20 @@
     "babel-core": "6.26.3",
     "babel-jest": "22.4.3",
     "babel-preset-env": "1.7.0",
-    "bili": "3.1.2",
+    "bili": "^3.4.2",
     "documentation": "6.0.0",
     "gh-pages": "^2.0.1",
     "jest": "22.4.3",
     "node-fetch": "2.1.2",
     "regenerator-runtime": "0.11.1",
+    "rollup-plugin-typescript2": "^0.19.0",
     "tslint": "5.10.0",
     "tslint-config-standard": "7.0.0",
-    "typescript": "3.0.1"
+    "typescript": "^3.2.2"
   },
   "bili": {
     "input": [
-      "./dist/**/*.js"
+      "./src/**/*.ts"
     ],
     "outDir": "libs/",
     "banner": true
