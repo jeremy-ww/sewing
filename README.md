@@ -39,6 +39,27 @@ isEmpty(10) // => false
 isEmpty('') // => true
 ```
 
+### Load on demand
+
+```bash
+$ npm i @babel/env babel-plugin-import -D
+```
+
+```json
+{
+  "presets": [
+    ["@babel/env", { "modules": false }]
+  ],
+  "plugins": [
+    ["import", {
+      "libraryName": "sewing",
+      "libraryDirectory": "dist",
+      "style": false
+    }]
+  ]
+}
+```
+
 ### Development
 
 ```bash
